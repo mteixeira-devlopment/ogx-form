@@ -1,23 +1,24 @@
-import { Component, AfterViewInit } from '@angular/core';
-import { FormComponent } from './form-components';
-import { Validators } from '@angular/forms';
+import { IUser, User } from './models/user';
+import { RequiredValidator } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormComponent } from './core/form-components';
+import { requiredValidator } from './validators/required-validator';
+import { maxLenghtValidator, minLenghtValidator } from './validators/length-validator';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent extends FormComponent implements AfterViewInit {
-  title = 'ogx-form';
+export class AppComponent extends FormComponent {
 
-  constructor() {
-    super();
-  }
+  public user: IUser = {username: 'Pedro', password: 'Maria', keepMeConnect: true};
 
-  ngAfterViewInit(): void {
-    super.ngAfterViewInit();
+  protected afterFormInit() {
+    this.inputValidation('username', [requiredValidator(), minLenghtValidator(1)]);
+    this.inputValidation('password', [requiredValidator(), minLenghtValidator(1)]);
 
-    this.inputValidation('username', Validators.required);
+    this.fill(this.user);
 
     console.log('form -> ', this.form);
   }
@@ -25,9 +26,8 @@ export class AppComponent extends FormComponent implements AfterViewInit {
   public submitForm(): void {
     this.submit();
     if (this.isValid()) {
-      console.log('form validado!');
+      const a = this.map<User>(User);
+      a.alert();
     }
-    console.log('controls -> ', this._controls);
-    console.log('validationResult -> ', this.validationResult);
   }
 }

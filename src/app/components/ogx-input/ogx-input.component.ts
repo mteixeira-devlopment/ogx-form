@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormItem } from '../extensions/form-item';
+import { FormItem } from '../../extensions/form-item';
 
 @Component({
   // tslint:disable-next-line:component-selector

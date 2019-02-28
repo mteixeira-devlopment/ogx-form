@@ -1,5 +1,5 @@
 import { Component, ContentChildren, QueryList, AfterViewInit } from '@angular/core';
-import { OgxInputComponent } from 'src/app/ogx-input/ogx-input.component';
+import { OgxInputComponent } from '../ogx-input/ogx-input.component';
 
 @Component({
   // tslint:disable-next-line:component-selector
