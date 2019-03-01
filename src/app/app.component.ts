@@ -1,9 +1,8 @@
-import { IUser, User } from './models/user';
-import { RequiredValidator } from '@angular/forms';
 import { Component } from '@angular/core';
-import { FormComponent } from './core/form-components';
+import { FormComponent } from './core/form-component';
 import { requiredValidator } from './validators/required-validator';
-import { maxLenghtValidator, minLenghtValidator } from './validators/length-validator';
+import { minLenghtValidator } from './validators/length-validator';
+import { IUser, User } from './models/user.model';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +11,7 @@ import { maxLenghtValidator, minLenghtValidator } from './validators/length-vali
 })
 export class AppComponent extends FormComponent {
 
-  public user: IUser = {username: 'Pedro', password: 'Maria', keepMeConnect: true};
+  public user: IUser = {username: 'Pedro', password: 'Maria', sexo: 'Masculino'};
 
   protected afterFormInit() {
     this.inputValidation('username', [requiredValidator(), minLenghtValidator(1)]);

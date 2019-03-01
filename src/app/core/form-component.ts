@@ -5,6 +5,7 @@ import { FormItem } from '../extensions/form-item';
 import { OgxFormComponent } from '../components/ogx-form/ogx-form.component';
 
 export abstract class FormComponent implements AfterViewInit {
+
   @ViewChild(OgxFormComponent)
   protected form: OgxFormComponent;
 
@@ -86,7 +87,7 @@ export abstract class FormComponent implements AfterViewInit {
 
     Object.keys(this.controls).forEach(controlKey => {
       const control: FormItem = (this.controls[controlKey]);
-      obj[controlKey] = control.value;
+      obj[control.name] = control.value;
     });
 
     const typedObj = new creator();
