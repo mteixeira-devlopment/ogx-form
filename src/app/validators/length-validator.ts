@@ -1,6 +1,6 @@
-import { VALIDATION_MESSAGES } from './../core/validation-messages';
 import { ValidatorFn } from '@angular/forms';
 import { FormItem } from '../extensions/form-item';
+import { VALIDATION_MESSAGES } from '../resources/validation-messages';
 
 export function maxLenghtValidator(length: number): ValidatorFn {
   return (control: FormItem): {[key: string]: any} | null => {
