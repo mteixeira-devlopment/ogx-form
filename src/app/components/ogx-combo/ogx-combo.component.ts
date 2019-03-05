@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { InputComponent } from 'src/app/core/input-component';
+import { Component, Input } from '@angular/core';
+import { InputComponent } from '../../core/input-component';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -14,12 +14,12 @@ import { InputComponent } from 'src/app/core/input-component';
     </select>
   `
 })
-export class OgxComboComponent extends InputComponent implements OnInit {
+export class OgxComboComponent extends InputComponent {
 
   @Input()
   public options: string[];
 
-  ngOnInit() {
-    super.ngOnInit();
+  protected afterInputInit() {
+
   }
 }

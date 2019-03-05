@@ -1,6 +1,5 @@
+import { InputComponent } from './../../core/input-component';
 import { Component, ContentChildren, QueryList, AfterViewInit } from '@angular/core';
-import { OgxInputComponent } from '../ogx-input/ogx-input.component';
-import { InputComponent } from 'src/app/core/input-component';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -15,9 +14,9 @@ export class OgxFormComponent implements AfterViewInit {
   @ContentChildren(InputComponent)
   private _inputQuery: QueryList<InputComponent>;
 
-  private _inputs: OgxInputComponent[];
+  private _inputs: InputComponent[];
 
-  get inputs(): OgxInputComponent[] {
+  get inputs(): InputComponent[] {
     return this._inputs;
   }
 

@@ -13,10 +13,10 @@ import { Component, OnInit, Input, ViewContainerRef } from '@angular/core';
   `,
   styleUrls: ['./ogx-input.component.scss']
 })
-export class OgxInputComponent extends InputComponent implements OnInit {
+export class OgxInputComponent extends InputComponent {
 
-  ngOnInit() {
-    super.ngOnInit();
+  protected afterInputInit() {
+
   }
 
 }
